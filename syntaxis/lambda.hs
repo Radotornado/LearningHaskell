@@ -1,3 +1,4 @@
+module Lamda where
 -- most important libraries
 import Data.List
 import System.IO

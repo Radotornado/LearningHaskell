@@ -171,3 +171,7 @@ bobsAge = snd bobSmith
 names = ["Bob", "Mary", "Tom"]
 addresses = ["Ingling 70", "Apfelkoch 12", "Innstrasse"]
 namesNAdresses = zip names addresses
+
+-- how the dot operator wors
+sumValue = putStrLn (show (1+2))
+sumValue = putStrLn . show $ 1 + 2

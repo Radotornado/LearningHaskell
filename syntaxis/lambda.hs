@@ -25,3 +25,10 @@ g = let x = 3 in (\y -> (\x -> x * y)(y + 1)) x
 h = (\f x -> x + f(f x))(\x -> x + 1) 1
 i = (17 :: Integer) + 4
 k = 17 + (4 :: Int) 
+
+-- create a list from left to right
+-- use zip to pairs from contents of two lists and makes a tuple
+-- we create a list with [1,1]
+-- lets take the fib and the tail of the fib
+-- and pass it to this function
+fib = 1 : 1 : [a + b | (a, b) <- zip fib (tail fib)]

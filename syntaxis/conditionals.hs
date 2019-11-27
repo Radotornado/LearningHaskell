@@ -34,3 +34,5 @@ getClass n = case n of
     6 -> "Saturday"
     7 -> "Sunday"
     _ -> "Not a day"
+
+-- test for github

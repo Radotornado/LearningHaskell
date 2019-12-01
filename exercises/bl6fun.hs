@@ -15,3 +15,6 @@ average x = a / b
 
 average' :: [Int] -> Double
 average' x = fromIntegral (addInts x) / fromIntegral (length x)
+
+averageR :: [Int] -> Rational
+averageR x = fromIntegral (addInts x) % fromIntegral (length x)

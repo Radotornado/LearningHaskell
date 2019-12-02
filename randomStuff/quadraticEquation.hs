@@ -15,10 +15,12 @@ oneRoot a b c
 
 -- calculate two roots 
 twoRoots :: Float -> Float -> Float -> (Float, Float)
-twoRoots a b c = (d-e,d+e) 
-                where 
-                    d = -b/(2.0*a)
-                    e = sqrt(b^2-4.0*a*c)/(2.0*a)
+twoRoots a b c 
+    | (a == 0.0) = error "twoRoots called with a==0"
+    | otherwise =  (d-e,d+e) 
+    where 
+        d = -b/(2.0*a)
+        e = sqrt(b^2-4.0*a*c)/(2.0*a)
 
 -- main function - creates the string 
 -- from the header (what the equasion is) 
@@ -36,9 +38,9 @@ header a b c = "The quadratic equasion: " ++
 -- decides how many roots are there
 roots :: Float -> Float -> Float -> String
 roots a b c
-    | b^2 >  4.0*a*c
+    | sqrt (b^2 - 4.0*a*c) > 0
              = "two roots: " ++ show f ++ " " ++ show s
-    | b^2 == 4.0*a*c
+    | sqrt (b^2 - 4.0*a*c) == 0
              = "one root: " ++ show (oneRoot a b c)
     | otherwise 
              = "no roots"

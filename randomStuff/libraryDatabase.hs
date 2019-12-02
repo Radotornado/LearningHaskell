@@ -7,23 +7,30 @@ module LibraryDatabase where
 -}
 
 -- declaring what the DB is using custom types
-type Person   = String
-type Book     = String
+type Person   = String 
+type Book     = String 
 type Database = [(Person, Book)]
 
 -- sample DB
-exampleDb = [("Rado", "The green mile"), ("Ani", "Drone")]
+exampleDb = [("Rado", "The green mile"), ("Ani", "Drone"),
+             ("Person1", "The green mile"), ("Ben", "GdI")]
 
 -- defining the lookup functions
 getListOfBooks :: Database -> Person -> [Book]
-getListOfBooks []                    borrower = []
-getListOfBooks ((person, book):rest) borrower 
-    | person == borrower = bk : getListOfBooks rest borrower 
-    | otherwise          = getListOfBooks rest borrower
+getListOfBooks []            borrower = []
+getListOfBooks ((p, b):rest) borrower 
+    | p == borrower = b : getListOfBooks rest borrower 
+    | otherwise     = getListOfBooks rest borrower
 
--- must define also
--- getBorrowers :: Database -> Book -> [Person]
--- isBorrowed :: Database -> Book -> Bool
+-- todo implement 
+-- isThisBookBorrowed :: Database -> Book -> Bool
+
+-- gives a list of all the borrowers who have this book
+getAllBorrowers :: Database -> Book -> [Person]
+getAllBorrowers []           book = []
+getAllBorrowers ((p,b):rest) book  
+    | book == b = p : getAllBorrowers rest book 
+    | otherwise = getAllBorrowers rest book
 
 -- insert the given person and book into the DB
 makeLoan :: Database -> Person -> Book -> Database

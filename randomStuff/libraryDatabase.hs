@@ -22,8 +22,12 @@ getListOfBooks ((p, b):rest) borrower
     | p == borrower = b : getListOfBooks rest borrower 
     | otherwise     = getListOfBooks rest borrower
 
--- todo implement 
--- isThisBookBorrowed :: Database -> Book -> Bool
+-- check if a certain book is borrowed
+isThisBookBorrowed :: Database -> Book -> Bool
+isThisBookBorrowed [] book = False
+isThisBookBorrowed ((p, b):rest) book 
+    | b /= book = isThisBookBorrowed rest book
+    | otherwise = True
 
 -- gives a list of all the borrowers who have this book
 getAllBorrowers :: Database -> Book -> [Person]

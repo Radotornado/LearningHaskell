@@ -1,6 +1,7 @@
 module AufgabeEins where
 
 -- write AufgabeEins without using filter and !!
+-- TODO: (1) tupToList
 
 -- make from a tupel a list
 -- tupToList :: (Num a) => (a, b, c) -> []

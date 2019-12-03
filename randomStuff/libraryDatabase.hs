@@ -2,8 +2,8 @@ module LibraryDatabase where
 
 {-
  - A library that uses a database
- - to keep a record of the books
- - on loan to borrowers
+ - to keep a record of the books,z
+ - loaned to borrowers
 -}
 
 -- declaring what the DB is using custom types
@@ -13,7 +13,8 @@ type Database = [(Person, Book)]
 
 -- sample DB
 exampleDb = [("Rado", "The green mile"), ("Ani", "Drone"),
-             ("Person1", "The green mile"), ("Ben", "GdI")]
+             ("Ben", "The green mile"), ("Ben", "GdI"), 
+             ("Ani", "Sarcasm for dummies")]
 
 -- defining the lookup functions
 getListOfBooks :: Database -> Person -> [Book]

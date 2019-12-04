@@ -1,9 +1,8 @@
 module AufgabeZwei where
 
--- write the following using direct recursion\
--- TODO: (1) isOrdered
--- TODO: (3) fibList
+-- write the following using direct recursion
 
+-- TODO:
 -- determine if a list is sorted
 isOrdered :: (Ord a, Num a) => [a] -> Bool
 isOrdered [] = True
@@ -15,6 +14,7 @@ delAfterEven (x:y:xs)
     | x `mod` 2 == 0 = x : delAfterEven xs
     | otherwise      = x : delAfterEven (y : xs)
 
+-- TODO:
 -- give the list of fibonacci numbers till n
 fibList :: Int -> [Int]
 fibList 1 = [1]

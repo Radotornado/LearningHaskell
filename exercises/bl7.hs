@@ -95,4 +95,24 @@ conc [] (y:ys) = y : conc [] ys
 conc (x:xs) y = x : conc xs y
 
 -- (ii) 
+-- TODO:
 
+{-
+ -
+ - Exercise 5
+ - Haskell: Lists
+ -
+ -}
+-- TODO:
+
+
+{-
+ -
+ - Exercise 6
+ -
+ -}
+
+foo :: Int -> Int  -> Int 
+foo a b | a <= 0 || b <= 0 = 1
+        | a > b            = (foo ((a-b) `div` 2) b) + (foo (a-1) b)
+        | otherwise        = (foo a (b-a))           + (foo (b-1) a)

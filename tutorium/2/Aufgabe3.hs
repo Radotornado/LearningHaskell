@@ -9,8 +9,7 @@ getMaxPos [] = (0, 0)
 getMaxPos xs = (maxInt, getNthIndex xs maxInt )
                  where maxInt = maximum xs
                     
-
 getNthIndex :: [Int] -> Int -> Int
-getNthIndex (x:xs) wert 
-    | wert == x = x 
-    | otherwise = getNthIndex xs wert
+getNthIndex xs val 
+    | last xs == val = length xs
+    | otherwise = getNthIndex (init xs) val

@@ -40,3 +40,32 @@ filterOut f x = [a | a <- x, f a == False]
 --     squares0To 50 == [0,1,4,9,16,25,36,49]
 squares0To :: Integer -> [Integer]
 squares0To x = [a*a | a <- [0..x], a*a <= x]
+
+-- (e) TODO:
+doubleDice :: Int -> Double 
+doubleDice x = fromIntegral(sum [a | a <- [1..x]]) / (fromIntegral(x))
+
+{-
+ -
+ - Exercise 3
+ - Higher order functions
+ - (are functions that recieve functions)
+ -
+ -}
+
+-- (a) write a function that recieves a function 
+--     and applies it thrice
+
+-- Example with twice
+-- twice (\x -> x^2) 3 == (3^2)^2 == 81
+twice :: (a -> a) -> (a -> a)
+twice f v = f (f v)
+
+trice :: (a -> a) -> (a -> a)
+trice f v = f (f (f v))
+
+-- (b) same but with n times
+ntimes :: Int -> (a -> a) -> (a -> a)
+ntimes n f v 
+    | n <= 0 = v
+    | otherwise = ntimes (n-1) f(f v)

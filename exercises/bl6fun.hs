@@ -18,3 +18,6 @@ average' x = fromIntegral (addInts x) / fromIntegral (length x)
 
 averageR :: [Int] -> Rational
 averageR x = fromIntegral (addInts x) % fromIntegral (length x)
+
+averageR' :: [Int] -> Rational
+averageR' xs = fromIntegral (addInts xs) / fromIntegral (length xs)

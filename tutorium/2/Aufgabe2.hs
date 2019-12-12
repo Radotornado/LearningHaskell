@@ -1,11 +1,16 @@
 module AufgabeZwei where
+    
+import Data.List
 
 -- write the following using direct recursion
 
--- TODO:
--- determine if a list is sorted
-isOrdered :: (Ord a, Num a) => [a] -> Bool
+-- determine if a list is sorted ascending
+isOrdered :: [Int] -> Bool
 isOrdered [] = True
+isOrdered [x] = True
+isOrdered (x:y:xs) 
+    | x > y = False 
+    | otherwise = isOrdered (y:xs)
 
 -- delete the number after an even one in an array
 delAfterEven :: [Int] -> [Int]
@@ -19,6 +24,7 @@ delAfterEven (x:y:xs)
 fibList :: Int -> [Int]
 fibList 1 = [1]
 fibList 2 = [1,1]
+fibList n = 
 
 -- find the biggest element in the array
 findMax :: (Ord a, Num a) => [a] -> a
@@ -26,8 +32,8 @@ findMax []     = 0
 findMax (x:xs) = max x (findMax xs)
 
 findMax' :: (Ord a, Num a) => [a] -> a
-findMax' [] = []
-findMax' x  = maximum' x
+findMax' [] = error "empty list"
+findMax' x  = maximum x
 
 -- delete the first n elements
 myDrop :: [a] -> Int -> [a]

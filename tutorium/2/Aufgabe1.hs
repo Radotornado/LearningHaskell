@@ -1,11 +1,10 @@
 module AufgabeEins where
 
 -- write AufgabeEins without using filter and !!
--- TODO: (1) tupToList
 
 -- make from a tupel a list
--- tupToList :: (Num a) => (a, b, c) -> []
--- tupToList :: (a, b, c) -> [a, b, c]
+tupToList :: (a, b, c) -> [(a, b, c)]
+tupToList (a,b,c) = [(a,b,c)]
 
 -- delete all negative numbers from a list
 delNeg :: (Num a, Ord a) => [a] -> [a]

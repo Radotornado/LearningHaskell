@@ -24,7 +24,6 @@ delAfterEven (x:y:xs)
 fibList :: Int -> [Int]
 fibList 1 = [1]
 fibList 2 = [1,1]
-fibList n = 
 
 -- find the biggest element in the array
 findMax :: (Ord a, Num a) => [a] -> a

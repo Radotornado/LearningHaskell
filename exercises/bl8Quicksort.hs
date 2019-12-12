@@ -30,4 +30,10 @@ testSort sortFn = do
 
 
 quicksort :: Ord a => [a] -> [a]
-quicksort xs = undefined
+quicksort []     = [] 
+quicksort [x]    = [x]
+quicksort (x:xs) = quicksort smaller ++ x : quicksort larger
+  where smaller = [y | y <- xs, y <  x]
+        larger  = [y | y <- xs, y >= x]
+ 
+-- quicksort (x:xs) = quicksort smaller ++ [p] ++ quicksort larger

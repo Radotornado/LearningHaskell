@@ -1,5 +1,7 @@
 module AufgabeDrei where
 
+import Data.List
+
 -- write the following functions using recursion
 
 -- return tuple with the biggest element and its position
@@ -30,6 +32,6 @@ myConcat (x:xs) (y:ys)
     | otherwise = y : myConcat (x:xs) ys
 
 -- merge 2 lists and sort them
-merge :: [Int] -> [Int]
+merge :: [Int] -> [Int] -> [Int]
 merge [] y = sort y 
-merge 
+merge (x:xs) (y:ys) = sort (x : y : merge xs ys)

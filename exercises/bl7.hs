@@ -136,7 +136,7 @@ countToZero'' n = n : countToZero'' (n - signum n)
 conc :: [a] -> [a] -> [a]
 conc [] [] = []
 conc [] ys = ys
-conc (x:xs) y = x : conc xs y
+conc (x:xs) y = x : (conc xs y)
 
 -- (ii) 
 -- reduce  (+) 3 [1,4] == (3 + 1) + 4 == 8
@@ -155,6 +155,14 @@ unzip' :: [(a,b)] -> ([a],[b])
 unzip' [] = ([], [])
 unzip' ((a,b):xs) = (a:fst u,b:snd u) 
                   where u = unzip' xs
+
+unzip'' :: [(a,b)] -> ([a],[b])
+unzip'' []   = ([] ,[])
+unzip'' xs   = (fsts ,snds)
+    where  fsts = map fst xssnds = map snd xs
+
+unzip''' :: [(a,b)] -> ([a],[b])
+unzip''' = foldr  (\(a,b) (c,d) -> (a:c,b:d)) ([] ,[])
 
  {-
  -

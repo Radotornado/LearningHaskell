@@ -15,12 +15,14 @@ getNthIndex xs val
     | last xs == val = length xs
     | otherwise = getNthIndex (init xs) val
 
--- TODO:
 -- return a list of ints as string
 listToString :: [Int] -> String 
-listToString [] = ""
-listToString [x] = show x ++ "}"
-listToString (x:xs) = show x ++ "," ++ listToString xs
+listToString l = ('{': listToStringIntern l)
+where
+    listToStringIntern  []    = "}"
+    listToStringIntern [x]    = (show x) ++ "}"
+    listToStringIntern (x:xs) =
+        (show x) ++ (’,’ : listToStringIntern  xs)
 
 -- insert all nonrepeating elements from the
 -- first array to the second

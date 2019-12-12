@@ -19,11 +19,14 @@ delAfterEven (x:y:xs)
     | x `mod` 2 == 0 = x : delAfterEven xs
     | otherwise      = x : delAfterEven (y : xs)
 
--- TODO:
 -- give the list of fibonacci numbers till n
 fibList :: Int -> [Int]
 fibList 1 = [1]
 fibList 2 = [1,1]
+fibList n = reverse (fibIntern (n-2) [1,1])
+    where 
+        fibIntern 0 xs = xsfibIntern n (x:(y:ys))
+        fibIntern n (x:(y:ys)) = fibIntern (n-1) ((x+y):(x:(y:ys)))
 
 -- find the biggest element in the array
 findMax :: (Ord a, Num a) => [a] -> a

@@ -25,6 +25,9 @@ g = let x = 3 in (\y -> (\x -> x * y)(y + 1)) x
 h = (\f x -> x + f(f x))(\x -> x + 1) 1
 i = (17 :: Integer) + 4
 k = 17 + (4 :: Int) 
+l = let x = 3 in (\f -> 2 + f(x-2)) (\x -> x*x) 
+m = (\f -> f((f 3)^2)) (\x -> 2*x)
+n = let y = 1 in ((\z -> (\y -> z + 3*y)) (y-2)) 4
 
 -- create a list from left to right
 -- use zip to pairs from contents of two lists and makes a tuple
